@@ -75,6 +75,7 @@ public class RNTrackPlayer: RCTEventEmitter {
     @objc(supportedEvents)
     override public func supportedEvents() -> [String] {
         return [
+            "playback-track-ended",
             "playback-queue-ended",
             "playback-state",
             "playback-error",
@@ -191,6 +192,12 @@ public class RNTrackPlayer: RCTEventEmitter {
                     "position": self.player.currentTime,
                     ])
             } else if reason == .playedUntilEnd {
+               self.sendEvent(withName: "playback-track-ended", body: [
+                    "track": (self.player.currentItem as? Track)?.id,
+                    "position": self.player.currentTime,
+                    "nextTrack": (self.player.nextItems.first as? Track)?.id,
+                    ])
+
                self.sendEvent(withName: "playback-track-changed", body: [
                     "track": (self.player.currentItem as? Track)?.id,
                     "position": self.player.currentTime,
