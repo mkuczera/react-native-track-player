@@ -223,7 +223,7 @@
 				9B18C30F226357930019375A /* TimeEventFrequency.swift */,
 			);
 			name = AudioPlayer;
-			path = AudioPlayer/SwiftAudio/Classes;
+			path = AudioPlayer2/SwiftAudio/Classes;
 			sourceTree = "<group>";
 		};
 		9BFBA4D31F3DFA4B00453D3A /* Support */ = {
